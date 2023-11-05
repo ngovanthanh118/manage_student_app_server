@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./untils/connection.js');
 const route = require('./routes/route.js');
-
+require('dotenv').config();
 app.use(cors());
 
 //Connected to database
@@ -24,7 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 })
