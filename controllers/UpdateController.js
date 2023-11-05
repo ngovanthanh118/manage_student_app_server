@@ -9,8 +9,8 @@ async function UpdateController(req, res) {
         const email = req.body.email;
         const phone = req.body.phone;
         const address = req.body.address;
-        const image = req.file.filename;
         if (req.file) {
+            const image = req.file.filename;
             const findStudent = await Student.findById(id);
             fs.unlinkSync(path.join(__dirname, '../public/uploads/' + findStudent.image));
             const updateStudent = await Student.findByIdAndUpdate({ _id: id }, {
